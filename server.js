@@ -3,11 +3,11 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static(__dirname + '/dist/gooutgowild'));
+app.use(express.static(__dirname + '/dist/goutgowild'));
 
 app.get('/*', (req, res) => {
 
-    res.sendFile(path.join(__dirname + '/dist/gooutgowild/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/goutgowild/index.html'));
 
 });
 
