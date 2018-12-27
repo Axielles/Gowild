@@ -28,9 +28,9 @@ export class ListEventsComponent implements OnInit {
       // Flag for the ngIf in the HTML
       this.isLoaded = true;
       // format timetable field
-      this.events = this.data.records.map(eventFormat);
+      // this.events = this.data.records.map(eventFormat);
       // sort events list
-      this.eventsSorted = eventSort(this.events);
+      this.eventsSorted = eventSort(this.data);
       this.api.setFilteredArray(this.eventsSorted);
     });
   }

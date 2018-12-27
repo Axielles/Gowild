@@ -15,10 +15,11 @@ export class OpenDataParisServices {
   todaysDate = new Date().toISOString();
   todaysDateAPIForm = this.todaysDate.slice(0, 10);
   currentYearAPIForm = this.todaysDateAPIForm.slice(0, 4);
-
-  urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&rows=10000&refine.date_start=${this.todaysDateAPIForm}`;
+  // &q=date_start%3C%23now()+AND+date_end%3E%3D%23now()
+  // urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&q=date_start%3C%23now()+AND+date_end%3E%3D%23now()&sort=-date_start&rows=1000&refine.date_start=${this.todaysDateAPIForm}`;
+  urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&q=date_start%3C%23now()+AND+date_end%3E%3D%23now()&sort=-date_start&rows=3000`;
   // tslint:disable-next-line:max-line-length
-  urlBaseWithoutDate = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&rows=10000&refine.date_start=${this.currentYearAPIForm}`;
+  urlBaseWithoutDate = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&rows=1000&refine.date_start=${this.currentYearAPIForm}`;
 
 
   getConcerts() {
@@ -50,6 +51,7 @@ export class OpenDataParisServices {
   }
 
   getAll() {
+    console.log(`${this.urlBase}`);
     return this.http.get(`${this.urlBase}`);
   }
 
