@@ -8,19 +8,16 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class OpenDataParisServices {
 
   dataFiltered: Array<any> = [];
-
-  constructor(private http: HttpClient) { }
-
+  URL = 'https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris';
 
   todaysDate = new Date().toISOString();
   todaysDateAPIForm = this.todaysDate.slice(0, 10);
   currentYearAPIForm = this.todaysDateAPIForm.slice(0, 4);
-  // &q=date_start%3C%23now()+AND+date_end%3E%3D%23now()
-  // urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&q=date_start%3C%23now()+AND+date_end%3E%3D%23now()&sort=-date_start&rows=1000&refine.date_start=${this.todaysDateAPIForm}`;
-  urlBase = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&q=date_start%3C%23now()+AND+date_end%3E%3D%23now()&sort=-date_start&rows=3000`;
+  urlBase = `${this.URL}&q=date_start+%3C%3D+%23now()+AND+date_end+%3E%3D+%23now()&sort=-date_start&rows=2000`;
   // tslint:disable-next-line:max-line-length
-  urlBaseWithoutDate = `https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris&rows=1000&refine.date_start=${this.currentYearAPIForm}`;
+  urlBaseWithoutDate = `${this.URL}&rows=1000&refine.date_start=${this.currentYearAPIForm}`;
 
+  constructor(private http: HttpClient) { }
 
   getConcerts() {
     return this.http.get(`${this.urlBase}&refine.tags=concert`);

@@ -28,9 +28,9 @@ export class ListEventsComponent implements OnInit {
       // Flag for the ngIf in the HTML
       this.isLoaded = true;
       // format timetable field
-      // this.events = this.data.records.map(eventFormat);
+      this.events = this.data.records.map(eventFormat);
       // sort events list
-      this.eventsSorted = eventSort(this.data);
+      this.eventsSorted = eventSort(this.events);
       this.api.setFilteredArray(this.eventsSorted);
     });
   }
@@ -52,8 +52,10 @@ const frenchDate = (date = new Date()) => {
 
 // cast the hour of the event
 const eventFormat = (event: any) => {
- event.fields.timetable = event.fields.timetable.slice(11, 16);
- return event;
+  // event.fields.timetable = event.fields.timetable.slice(11, 16);
+  event.fields.timetable = event.fields.timetable.slice(11, 16);
+  console.log(event.fields.timetable);
+  return event;
 };
 
 // sort the list of events by started hour
@@ -66,9 +68,10 @@ const eventSort = (eventsIn: [any]) => {
 
   while (eventsOut.length !== eventsIn.length) {
     index = 0;
-    tempHour = '24:00';
+    tempHour = '24:00'; // 24:00
     // boucle sur la liste pour voir si un événement ne commence pas plus tôt
     for (let j = 0; j < eventsIn.length; j++) {
+      console.log(eventsIn[j].fields.title);
       if (!alreadySort.includes(j) && eventsIn[j].fields.timetable <= tempHour) {
         tempHour = eventsIn[j].fields.timetable;
         index = j;
