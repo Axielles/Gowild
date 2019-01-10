@@ -28,10 +28,14 @@ export class ParametersComponent implements OnInit {
   dateFormIsValid = false;
   isLoading = false;
   noEvents = false;
+  today: string;
 
-  constructor(private openDataParisService: OpenDataParisServices) { }
+  constructor(private openDataParisService: OpenDataParisServices) {
+   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.today = this.openDataParisService.todaysDateAPIForm;
+  }
 
   changeConcertsFlag() {
     this.concertType = !this.concertType;
@@ -133,7 +137,7 @@ export class ParametersComponent implements OnInit {
 
   handleDateChange() {
     const userInputElement = <HTMLInputElement>document.getElementById('userInput');
-    this.inputDate = userInputElement.value; //userInputElement.innerText || userInputElement.textContent;
+    this.inputDate = userInputElement.value; // userInputElement.innerText || userInputElement.textContent;
     if (this.inputDate.length === 10) {
     this.dateFormIsValid = true;
     } else {
