@@ -1,21 +1,15 @@
-<div class="container-fluid background-img">
-  <div class="row justify-content-around">
-    <h2 class="h2 mt-2">{{ frDate }}</h2>
-    <button class="btn btn-outline-secondary mt-1 mr-1">
-      <a routerLink="/param"><i class="fa fa-cog"></i> Sélectionne tes préférences</a>
-    </button>
-  </div>
+<div class="container-fluid background-img pt-1">
   <div *ngIf="isLoaded" id="list">
     <div *ngFor="let event of eventsSorted; let i = index">
       <div class="row">
-        <div class="col-12 col-sm-3 col-md-2">
+        <div class="col-12 col-sm-3 col-md-2 pt-1">
           {{ event.fields.date_end }}
           {{ event.fields.timetable }}
         </div>
         <div class="col-12 col-sm-5 col-md-7 eventTitle">
           <a [routerLink]="[i]">{{ event.fields.title }}</a>
         </div>
-        <div class="col-12 col-sm-4 col-md-3">
+        <div class="col-12 col-sm-4 col-md-3 pt-1">
           {{event.fields.placename}}
         </div>
       </div>
