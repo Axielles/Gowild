@@ -1,6 +1,6 @@
 .background-img {
-  background-image: url(/src/assets/images/concert-2.jpg);
-  background-clip: content-box;
+  background-image: url(../../assets/images/concert-2.jpg);
+  background-size: cover;
   position: sticky; 
   color: white;
 }
