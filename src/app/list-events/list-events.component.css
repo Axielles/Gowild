@@ -11,15 +11,17 @@ a {
 }
 
 .row {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
 }
 
 .eventTitle {
   font-size: 1.4em;
 }
 
-#list {
+.list {
   background-color: black;
   opacity: 0.70;
-  padding: 3px;
+  padding: 10px;
+  font-size: 1.2em;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
