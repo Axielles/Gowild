@@ -1,27 +1,21 @@
-.background-img {
+.backGroundList {
+  background-color: black;
   background-image: url(../../assets/images/concert-2.jpg);
-  background-size: cover;
-  position: sticky; 
+  background-size: auto;
+  position: sticky;
+}
+
+#list {
+  background-color: black;
+  opacity: 0.75;
+  padding: 10px;
+  font-size: 1.2em;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: white;
 }
 
 a {
   color : white;
   text-decoration: none;
-}
-
-.row {
-  
-}
-
-.eventTitle {
   font-size: 1.4em;
-}
-
-.list {
-  background-color: black;
-  opacity: 0.70;
-  padding: 10px;
-  font-size: 1.2em;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
