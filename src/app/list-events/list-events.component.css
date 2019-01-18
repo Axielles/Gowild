@@ -19,3 +19,7 @@ a {
   text-decoration: none;
   font-size: 1.4em;
 }
+
+#bouton {
+  cursor: pointer;
+}

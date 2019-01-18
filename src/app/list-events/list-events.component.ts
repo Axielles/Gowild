@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OpenDataParisServices } from '../services/OpenDataParisServices';
 import { MapServices } from '../services/map.services';
+// import { DetailsEvents } from '../details-events/details-events.component';
 
 @Component({
   selector: 'app-list-events',
@@ -14,6 +15,7 @@ export class ListEventsComponent implements OnInit {
   events: [any];
   eventsSorted: Array<any>;
   frDate: string;
+  public isCollapsed = true;
 
   constructor(private api: OpenDataParisServices, private gps: MapServices) {
   }
@@ -32,13 +34,18 @@ export class ListEventsComponent implements OnInit {
       this.api.setFilteredArray(this.eventsSorted);
     });
   }
+
+  onClick() {
+    this.isCollapsed = !this.isCollapsed;
+    // console.log(this.isCollapsed);
+    return 5;
+  }
+
 }
 
 // cast the hour of the event
 const eventFormat = (event: any) => {
-  // event.fields.timetable = event.fields.timetable.slice(11, 16);
   event.fields.timetable = event.fields.timetable.slice(11, 16);
-  console.log(event.fields.timetable);
   return event;
 };
 
@@ -55,7 +62,6 @@ const eventSort = (eventsIn: [any]) => {
     tempHour = '24:00'; // 24:00
     // boucle sur la liste pour voir si un événement ne commence pas plus tôt
     for (let j = 0; j < eventsIn.length; j++) {
-      console.log(eventsIn[j].fields.title);
       if (!alreadySort.includes(j) && eventsIn[j].fields.timetable <= tempHour) {
         tempHour = eventsIn[j].fields.timetable;
         index = j;

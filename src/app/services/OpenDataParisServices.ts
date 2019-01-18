@@ -9,11 +9,12 @@ export class OpenDataParisServices {
 
   dataFiltered: Array<any> = [];
   URL = 'https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris';
+  qField = `&q=date_start+%3C%3D+%23now()+AND+date_end+%3E%3D+%23now()&sort=-date_start&rows=2000`;
 
   todaysDate = new Date().toISOString();
   todaysDateAPIForm = this.todaysDate.slice(0, 10);
   currentYearAPIForm = this.todaysDateAPIForm.slice(0, 4);
-  urlBase = `${this.URL}&q=date_start+%3C%3D+%23now()+AND+date_end+%3E%3D+%23now()&sort=-date_start&rows=2000`;
+  urlBase = `${this.URL}${this.qField}`;
   // tslint:disable-next-line:max-line-length
   urlBaseWithoutDate = `${this.URL}&rows=1000&refine.date_start=${this.currentYearAPIForm}`;
 
@@ -48,7 +49,6 @@ export class OpenDataParisServices {
   }
 
   getAll() {
-    console.log(`${this.urlBase}`);
     return this.http.get(`${this.urlBase}`);
   }
 

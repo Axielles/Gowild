@@ -1,12 +1,4 @@
 <div class="container-fluid background-img">
-  <!-- <div class="row input-group mt-1 mb-1 col-12 col-sm-6 col-md-4">
-    <h1 class="form-control">Paramètres</h1>
-    <div class="input-group-append">
-      <button class="btn btn-outline-sucess" type="button">
-        <a routerLink="/events">Go !</a>
-      </button>
-    </div>
-  </div> -->
   <div class="row no-gutters custom-control custom-checkbox">
     <input type="texte" [(value)]="today" (change)="handleDateChange()" id="userInput" name="eventDate" placeholder="Date : aaaa-mm-jj" class="input-group mb-1 col-5 offset-3 col-sm-4 offset-sm-4 col-md-4 offset-md-4 col-lg-1 offset-lg-6" [ngStyle]="{border: dateFormIsValid ? '3px solid white' : ''}">
   </div>
