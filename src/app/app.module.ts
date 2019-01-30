@@ -14,6 +14,7 @@ import { ParametersComponent } from './parameters/parameters.component';
 import { DetailsEventsComponent } from './details-events/details-events.component';
 import { MapComponent } from './map/map.component';
 import { MapServices } from './services/map.services';
+import { EventBoardComponent } from './event-board/event-board.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/events', pathMatch: 'full'},
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     HomeComponent,
     ParametersComponent,
     DetailsEventsComponent,
-    MapComponent
+    MapComponent,
+    EventBoardComponent
   ],
   imports: [
     BrowserModule,

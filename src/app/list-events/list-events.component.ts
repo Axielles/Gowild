@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OpenDataParisServices } from '../services/OpenDataParisServices';
 import { MapServices } from '../services/map.services';
-// import { DetailsEvents } from '../details-events/details-events.component';
 
 @Component({
   selector: 'app-list-events',
@@ -15,7 +14,7 @@ export class ListEventsComponent implements OnInit {
   events: [any];
   eventsSorted: Array<any>;
   frDate: string;
-  public isCollapsed = true;
+
 
   constructor(private api: OpenDataParisServices, private gps: MapServices) {
   }
@@ -33,12 +32,6 @@ export class ListEventsComponent implements OnInit {
       this.eventsSorted = eventSort(this.events);
       this.api.setFilteredArray(this.eventsSorted);
     });
-  }
-
-  onClick() {
-    this.isCollapsed = !this.isCollapsed;
-    // console.log(this.isCollapsed);
-    return 5;
   }
 
 }
