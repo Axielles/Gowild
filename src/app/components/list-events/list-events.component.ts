@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OpenDataParisServices } from '../services/OpenDataParisServices';
+import { OpenDataParisServices } from '../../services/OpenDataParisServices';
 
 @Component({
   selector: 'app-list-events',

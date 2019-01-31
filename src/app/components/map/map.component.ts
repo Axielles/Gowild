@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MapServices } from '../services/map.services';
+import { WhereIAmService } from '../../services/WhereIAm.service';
 import * as L from 'leaflet';
 
 @Component({
@@ -10,14 +10,14 @@ import * as L from 'leaflet';
 export class MapComponent implements OnInit {
   map: any;
   position: Position;
-  @Input() event: any;
+  @Input() latlon: any;
 
-  constructor(private gps: MapServices) {
-    this.gps.findme();
+  constructor(private gps: WhereIAmService) {
+    this.position = this.gps.position;
+    this.gps.trackMe();
   }
 
   ngOnInit() {
-    this.position = this.gps.position;
 
     const map = L.map('map').setView([this.position.coords.latitude, this.position.coords.longitude], 11);
 
@@ -36,7 +36,7 @@ export class MapComponent implements OnInit {
       const myIcon = L.icon({
         iconUrl: '../assets/images/marker-icon-black.png'
       });
-      L.marker(this.event.fields.latlon,
+      L.marker(this.latlon,
         {icon: myIcon}).bindPopup('Votre événement').addTo(map).openPopup();
     };
 

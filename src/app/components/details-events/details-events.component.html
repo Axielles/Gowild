@@ -1,24 +1,24 @@
 <div class="detail-event">
     <div class="detail-header">
-        <h2>{{ event.fields.title }}</h2>
-        <p>{{ event.fields.description }}</p>
+        <h2>{{ event.title }}</h2>
+        <p>{{ event.description }}</p>
     </div>  
     <div class="row no-gutters">
         <div class="detail-right col-12 col-md-6">
             <h2><i class="fa fa-map-marker"></i> Où ?</h2>
-            <p>{{ event.fields.placename }}<br />
-                {{ event.fields.address }}</p><br />
+            <p>{{ event.placename }}<br />
+                {{ event.address }}</p><br />
             <h2><i class="fa fa-calendar-o"></i> Quand ?</h2>
-            <p>{{ event.fields.space_time_info }}
+            <p>{{ event.space_time_info }}
             </p><br />
             <h2><i class="fa fa-credit-card"></i> Combien ?</h2>
-            <p>{{ event.fields.pricing_info }}</p><br />
-            <h2 class="link"><i class="fa fa-info-circle"></i><a href="{{ event.fields.link }}" target="_blank">
+            <p>{{ event.pricing_info }}</p><br />
+            <h2 class="link"><i class="fa fa-info-circle"></i><a href="{{ event.link }}" target="_blank">
                     Plus d'infos</a></h2>
             <br />
         </div>
         <div class="detail-map col-12 col-md-6">
-            <app-map [event]="event.fields"></app-map>
+            <app-map [latlon]="event.latlon"></app-map>
             <br />
             <br />
             <br />
