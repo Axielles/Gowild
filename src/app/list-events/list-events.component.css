@@ -3,4 +3,5 @@
   background-image: url(../../assets/images/concert-2.jpg);
   background-size: auto;
   position: sticky;
+  text-shadow: 2px 2px 5px black, 0 0 25px darkred, 0 0 5px black;
 }

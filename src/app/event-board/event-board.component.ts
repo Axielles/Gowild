@@ -1,24 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Event } from '../event';
 
 @Component({
   selector: 'app-event-board',
   templateUrl: './event-board.component.html',
   styleUrls: ['./event-board.component.css']
 })
-export class EventBoardComponent implements OnInit {
+export class EventBoardComponent{
   @Input() event: any;
-  @Input() index: any;
+  @Input() index: number;
   isCollapsed = true;
 
   constructor() { }
 
-  ngOnInit() {
-    console.log(this.index);
-  }
-
   onClick() {
     this.isCollapsed = !this.isCollapsed;
-    // console.log(this.isCollapsed);
   }
 
+  onReClick() {
+    this.isCollapsed = !this.isCollapsed;
+  }
 }

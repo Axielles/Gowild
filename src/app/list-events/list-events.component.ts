@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { OpenDataParisServices } from '../services/OpenDataParisServices';
-import { MapServices } from '../services/map.services';
 
 @Component({
   selector: 'app-list-events',
@@ -15,12 +14,10 @@ export class ListEventsComponent implements OnInit {
   eventsSorted: Array<any>;
   frDate: string;
 
-
-  constructor(private api: OpenDataParisServices, private gps: MapServices) {
+  constructor(private api: OpenDataParisServices) {
   }
 
   ngOnInit() {
-    this.gps.findme();
     // api OpenDataParis call
     this.api.getAll().subscribe((response) => {
       this.data = response;
