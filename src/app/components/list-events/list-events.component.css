@@ -1,7 +1,6 @@
 .backGroundList {
-  background-color: black;
-  background-image: url(/src/assets/images/concert-2.jpg);
-  background-size: auto;
+  background: rgba(0, 0, 0, 0.8);
+  background-size: contain;
   position: sticky;
   text-shadow: 2px 2px 5px black, 0 0 25px darkred, 0 0 5px black;
 }

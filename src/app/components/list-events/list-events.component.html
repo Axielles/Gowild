@@ -1,6 +1,5 @@
-<div class="backGroundList">
-  <div *ngIf="isLoaded" id="list">
-    <app-event-board *ngFor="let event of eventsSorted;index as i" [event]="event" [index]="i">  
-    </app-event-board>
-  </div>
+<div *ngIf="isLoaded" class="backGroundList">
+  <app-event-board *ngFor="let event of eventsSorted;index as i" [event]="event" [index]="i">  
+  </app-event-board>
 </div>
+<br>

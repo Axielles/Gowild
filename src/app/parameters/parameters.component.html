@@ -1,7 +1,5 @@
-<div class="container-fluid background-img">
-  <div class="row no-gutters custom-control custom-checkbox">
-    <input type="texte" [(value)]="today" (change)="handleDateChange()" id="userInput" name="eventDate" placeholder="Date : aaaa-mm-jj" class="input-group mb-1 col-5 offset-3 col-sm-4 offset-sm-4 col-md-4 offset-md-4 col-lg-1 offset-lg-6" [ngStyle]="{border: dateFormIsValid ? '3px solid white' : ''}">
-  </div>
+<div class="container-fluid">
+  <input type="date" [(value)]="today" (change)="handleDateChange()" id="userInput" name="eventDate" class="input-group w-auto mx-auto" [ngStyle]="{border: dateFormIsValid ? '3px solid white' : ''}">
   <div class="row no-gutters custom-control custom-checkbox">
     <div class="row">
     <button type="button" class="btn btn-outline-secondary mb-1 col-5 col-sm-3 offset-sm-2 col-md-3 offset-md-2 col-lg-2 offset-lg-1" (click)="changeConcertsFlag()" [ngStyle]="{border: concertType ? '4px solid white' : ''}">Concerts</button>

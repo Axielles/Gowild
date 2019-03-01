@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './event-board.component.html',
   styleUrls: ['./event-board.component.css']
 })
-export class EventBoardComponent{
+export class EventBoardComponent {
   @Input() event: any;
   @Input() index: number;
   isCollapsed = true;
@@ -17,6 +17,6 @@ export class EventBoardComponent{
   }
 
   onReClick() {
-    this.isCollapsed = !this.isCollapsed;
+    // this.isCollapsed = !this.isCollapsed;
   }
 }

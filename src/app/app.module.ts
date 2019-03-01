@@ -14,7 +14,7 @@ import { DetailsEventsComponent } from './components/details-events/details-even
 import { MapComponent } from './components/map/map.component';
 import { EventBoardComponent } from './components/event-board/event-board.component';
 
-import { WhereIAmService } from '../app/services/WhereIAm.service';
+import { WhereIAmService } from './services/WhereIAm.service';
 import { LeafletService } from './services/Leaflet.service';
 import { OpenDataParisServices } from './services/OpenDataParisServices';
 

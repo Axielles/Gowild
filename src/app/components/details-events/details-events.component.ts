@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { LeafletService } from '../../services/Leaflet.service';
+import { Event } from '../../models/event';
 
 @Component({
   selector: 'app-details-events',
@@ -6,11 +8,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./details-events.component.css']
 })
 
-export class DetailsEventsComponent implements OnInit {
-  @Input() event: any;
+export class DetailsEventsComponent implements OnInit, OnDestroy {
+  @Input() event: Event;
   @Input() index: number;
 
-  ngOnInit () {
-    console.log(this.event.latlon);
+  constructor(private leaflet: LeafletService) { }
+
+  ngOnInit() {
+    this.leaflet.onCall(this.event.latlon);
+  }
+
+  ngOnDestroy() {
+    console.log( 'dans ngOnDestroy' );
   }
 }

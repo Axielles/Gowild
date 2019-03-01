@@ -11,6 +11,6 @@
   </div>
 </div>
 <div id="details" [ngbCollapse]="isCollapsed" (click)="onReClick()">
-  <app-details-events [event]="event.fields" [index]="i"></app-details-events>
+  <app-details-events *ngIf=!isCollapsed [event]="event.fields"></app-details-events>
 </div>
 <hr>
