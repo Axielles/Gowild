@@ -19,12 +19,13 @@ export class ListEventsComponent implements OnInit {
 
   ngOnInit() {
     // api OpenDataParis call
-    this.api.getAll().subscribe((response) => {
+    this.api.getAllWD().subscribe((response) => {
       this.data = response;
       // Flag for the ngIf in the HTML
       this.isLoaded = true;
       // format timetable field
       this.events = this.data.records.map(eventFormat);
+      // this.events = this.data.records;
       // sort events list
       this.eventsSorted = eventSort(this.events);
       this.api.setFilteredArray(this.eventsSorted);
@@ -35,7 +36,8 @@ export class ListEventsComponent implements OnInit {
 
 // cast the hour of the event
 const eventFormat = (event: any) => {
-  event.fields.timetable = event.fields.timetable.slice(11, 16);
+  console.log(event.fields.timetable);
+  // event.fields.timetable = event.fields.timetable.slice(11, 16);
   return event;
 };
 

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class OpenDataParisServices {
 
   dataFiltered: Array<any> = [];
-  URL = 'https://opendata.paris.fr/api/records/1.0/search/?dataset=evenements-a-paris';
+  URL = 'https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-';
   qField = `&q=date_start+%3C%3D+%23now()+AND+date_end+%3E%3D+%23now()&sort=-date_start&rows=2000`;
 
   todaysDate = new Date().toISOString();
@@ -49,6 +49,7 @@ export class OpenDataParisServices {
   }
 
   getAll() {
+    console.log(this.urlBase);
     return this.http.get(`${this.urlBase}`);
   }
 
@@ -81,6 +82,7 @@ export class OpenDataParisServices {
   }
 
   getAllWD() {
+    console.log(this.urlBase);
     return this.http.get(`${this.urlBaseWithoutDate}`);
   }
 
